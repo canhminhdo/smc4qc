@@ -8,6 +8,7 @@ fmod QUBIT is
     subsort OneQubit EnQubit < Qubit .
 
     vars N N1 N2 : Nat .
+    var M : Matrix .
     var V : Vector .
     var NL : NatList .
 
@@ -20,7 +21,7 @@ fmod QUBIT is
     mb(q[N]: V) : OneQubit .
     mb(q[N1 N2 NL]: V) : EnQubit .
     --- remove unnecessary qubits
-    eq (q[nil]: V) = emp .
+    eq (q[nil]: M) = emp .
 endfm
 
 fmod SYMBOLIC-REASONING is

@@ -13,6 +13,10 @@ fmod COMPLEX is
     op _./_  : Complex Complex -> Complex [prec 31] .
     op _.+_  : Complex Complex -> Complex [comm assoc prec 33] .
     op (_)^* : Complex -> Complex [prec 30] .
+    op _.*_ : Real Real -> Real [ditto] .
+    op _./_ : Real Real -> Real [ditto] .
+    op _.+_ : Real Real -> Real [ditto] .
+    op (_)^* : Real -> Real [ditto] .
 
     --- comparative operators
     op _.>_  : Real Real -> Bool .
@@ -24,6 +28,7 @@ fmod COMPLEX is
     op Abs  : Complex -> Real .
     op Pow  : Complex Rat -> Complex .
     op Sqrt : Complex -> Complex .
+    op Sqrt : PosRat -> Real .
 
     vars R R1 R2 : Rat .
     vars PR PR' : PosRat .
@@ -33,6 +38,7 @@ fmod COMPLEX is
     --- imaginary properties
     eq i .* i = -1 .
     eq Abs(i) = 1 .
+    eq (i)^* = (-1) .* i .
     --- absolute values of postive numbers are positive numbers
     eq Abs((Abs(C))) = Abs(C) .
     eq Abs((Pow(Abs(C), N))) = Pow(Abs(C), N) .
@@ -276,7 +282,7 @@ fmod MATRIX is
     eq Z = B0  + (-1) . B3 .
     eq H = 1 ./ Sqrt(2) . B0 + 1 ./ Sqrt(2) . B1 + 1 ./ Sqrt(2) . B2 + (-1) ./ Sqrt(2) . B3 .
     eq S = B0 + i . B3 .
-    eq T = B0 + ((1 + i) ./ Sqrt(2)) . B3 .
+    eq T = B0 + ((1 .+ i) ./ Sqrt(2)) . B3 .
     eq CX = B0 (x) I + B3 (x) X .
     eq CY = B0 (x) I + B3 (x) Y .
     eq CZ = B0 (x) I + B3 (x) Z .
